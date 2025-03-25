@@ -9,7 +9,7 @@ spec:
   selector:
     app: guestbook-ui
 metadata:
-  name: guestbook-ui-2
+  name: guestbook-ui-3
 spec:
   ports:
   - port: 80
