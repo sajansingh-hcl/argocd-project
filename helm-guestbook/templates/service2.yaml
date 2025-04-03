@@ -7,12 +7,13 @@ metadata:
     chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-spec: {{ .Values.service2.type }}
+spec:
+  type: {{ .Values.service2.type }}
   ports:
     - port: {{ .Values.service2.port }}
       targetPort: http
       protocol: TCP
       name: http
   selector:
-     app: {{ template "helm-guestbook.name" . }}
-     release: {{ .Release.Name }}
+    app: {{ template "helm-guestbook.name" . }}
+    release: {{ .Release.Name }}
