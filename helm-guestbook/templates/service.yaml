@@ -17,22 +17,24 @@ spec:
   selector:
     app: {{ template "helm-guestbook.name" . }}
     release: {{ .Release.Name }}
-    
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: {{ template "helm-guestbook.fullname" . }}-service2
-#   labels:
-#     app: {{ template "helm-guestbook.name" . }}
-#     chart: {{ template "helm-guestbook.chart" . }}
-#     release: {{ .Release.Name }}
-#     heritage: {{ .Release.Service }}
-# spec: {{ .Values.service2.type }}
-#   ports:
-#     - port: {{ .Values.service2.port }}
-#       targetPort: http
-#       protocol: TCP
-#       name: http
-#   selector:
-#     app: {{ template "helm-guestbook.name" . }}
-#     release: {{ .Release.Name }}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "helm-guestbook.fullname" . }}-service2
+  labels:
+    app: {{ template "helm-guestbook.name" . }}
+    chart: {{ template "helm-guestbook.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec: {{ .Values.service2.type }}
+  ports:
+    - port: {{ .Values.service2.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+     app: {{ template "helm-guestbook.name" . }}
+     release: {{ .Release.Name }}
