@@ -1,0 +1,10 @@
+apiVersion: network.azure.upbound.io/v1beta2
+kind: Subnet
+metadata:
+  name: crossplane-subnet
+spec:
+  forProvider:
+    addressPrefixes:
+      - 10.0.1.0/24
+    resourceGroupName: pep-rg-eus
+    virtualNetworkName: crossplane-virtualnetwork

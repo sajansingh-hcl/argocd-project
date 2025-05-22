@@ -1,0 +1,9 @@
+apiVersion: network.azure.upbound.io/v1beta1
+kind: PublicIP
+metadata:
+  name: crossplane-vm-publicip
+spec:
+  forProvider:
+    allocationMethod: Static
+    location: East US 2
+    resourceGroupName: pep-rg-eus

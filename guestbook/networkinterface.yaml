@@ -1,0 +1,15 @@
+apiVersion: network.azure.upbound.io/v1beta1
+kind: NetworkInterface
+metadata:
+  name: crossplane-nic
+spec:
+  forProvider:
+    ipConfiguration:
+      - name: testconfiguration1
+        privateIpAddressAllocation: Dynamic
+        subnetIdRef:
+          name: crossplane-subnet
+        publicIpAddressIdRef:
+          name: crossplane-vm-publicip
+    location: East US 2
+    resourceGroupName: pep-rg-eus
